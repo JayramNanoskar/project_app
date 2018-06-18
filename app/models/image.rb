@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
   belongs_to :user
+  has_many :order_lines
 
   mount_uploader :picture, PictureUploader
   validate :picture_size
