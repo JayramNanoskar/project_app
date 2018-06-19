@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   has_many :order_lines
+  has_many :orders
 
   def add_image(image_params)
     # debugger

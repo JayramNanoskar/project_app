@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  # post 'orders/show'
+  resources :orders, only: [:index, :show]
+
   get 'order_lines/create'
 
   put 'order_lines/update'
