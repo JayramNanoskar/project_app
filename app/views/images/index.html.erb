@@ -28,7 +28,7 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-          <%= link_to 'Add to cart', order_lines_create_path(image.id) , :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'Add to cart', order_lines_create_path(image_id: image) , :class => 'btn btn-default btn-xs' %>
         </td>
       </tr>
     <% end %>

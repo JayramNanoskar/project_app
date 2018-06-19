@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'order_lines/create'
 
-  get 'order_lines/update'
+  put 'order_lines/update'
 
-  get 'order_lines/destroy'
+  delete 'order_lines/destroy'
 
   get 'carts/show'
-
+  delete 'carts/destroy'
   # resources :carts  
   resources :images
   devise_for :users

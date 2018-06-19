@@ -1,2 +1,42 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
+<h4>Carts show</h4>
+<%# <p>Find me in app/views/carts/show.html.erb</p> %>
+<%# <%= @cart.id %>
+<% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
+
+  <%- model_class = Image -%>
+  <%= link_to 'Back to images', images_path , :class => 'btn btn-default btn-xs pull-right' %>
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:picture) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @order_lines.each do |order_line| %>
+      <tr>
+        <%# <%= image.user.email if image.user%>
+        <td>
+          <%= order_line.quantity %>
+        </td>
+        <td>
+          <% @image = Image.where(id: order_line.image_id)%>
+          <%= image_tag(@image.first.picture.url, size: "100x100") if @image.first.picture? %>
+        <td>
+          <%# <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_image_path(image), :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'Remove Item',
+                      order_lines_destroy_path(id: order_line),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%# <%= link_to 'Delete Cart', carts_destroy_path(id: @cart), method: :delete, :class => 'btn btn-xs btn-danger' %>
