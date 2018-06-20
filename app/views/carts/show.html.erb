@@ -1,12 +1,14 @@
 <%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
-<h4>Carts show</h4>
+<h4 align="center">Carts show</h4>
 <%# <p>Find me in app/views/carts/show.html.erb</p> %>
 <%# <%= @cart.id %>
+
 <% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
 
   <%- model_class = Image -%>
   <%= link_to 'Back to images', images_path , :class => 'btn btn-default btn-xs pull-right' %>
 
+<% if @cart.status == "pending" %>
   <table class="table table-striped">
   <thead>
     <tr>
@@ -16,6 +18,7 @@
     </tr>
   </thead>
   <tbody>
+
 
     <% @order_lines.each do |order_line| %>
       <tr>
@@ -37,7 +40,13 @@
         </td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
+
 <%= link_to 'Process Order', order_path(@cart), :class => 'btn btn-default btn-xs' %>
+
 <%# <%= link_to 'Delete Cart', carts_destroy_path(id: @cart), method: :delete, :class => 'btn btn-xs btn-danger' %>
+<% else %>
+<h4>No Cart Present</h4>
+<% end %>

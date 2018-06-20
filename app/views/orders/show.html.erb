@@ -1,1 +1,16 @@
-<h4>Order under process</h4>
+<%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
+
+<h4 align="center">Your order is Successfull</h4>
+
+<% @cart.status = "completed" %>
+<% @cart.save %>
+
+<% @amount = 0.00 %>
+<% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
+<% @order_lines.each do |order_line| %>
+  <% @amount += order_line.total_price %>
+<% end %>
+
+<div class="pull-center">
+  Total amount: <%= @amount %>
+</div>
