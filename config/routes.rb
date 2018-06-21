@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # post 'orders/show'
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :create]
 
   get 'order_lines/create'
 

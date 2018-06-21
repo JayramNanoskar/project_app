@@ -1,0 +1,29 @@
+<%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
+
+<h4 align="center">Orders Summary</h4>
+<h4>Orders:</h4><hr>
+
+<% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
+
+<% @amount = 0.00 %>
+<% @order_lines.each do |order_line| %>
+  <% @amount += order_line.total_price %>
+<% end %>
+
+<% @quantity = 0 %>
+<% @cart.order_lines.each do |order_line| %>
+  <% @quantity += order_line.quantity %>
+<% end %>
+
+<div class="pull-center">
+  Total quantity: <%= @quantity %>
+  Total amount: <%= @amount %><hr>
+</div>
+
+<%# <% @orders.each do |order| %>
+  <%# <% o = order.cart_id %> 
+  <%# <% cart = Cart.find(o) %> 
+  <%# <% cart.order_lines.each do |orderline| %> 
+    <%# <%= orderline.id %> 
+  <%# <% end %>
+<%# <% end %> 

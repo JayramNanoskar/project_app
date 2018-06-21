@@ -6,7 +6,7 @@
 <% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
 
   <%- model_class = Image -%>
-  <%= link_to 'Back to images', images_path , :class => 'btn btn-default btn-xs pull-right' %>
+  <%= link_to 'Back to shop', images_path , :class => 'btn btn-default btn-xs pull-right' %>
 
 <% if @cart.status == "pending" %>
   <table class="table table-striped">
@@ -44,9 +44,10 @@
   </tbody>
 </table>
 
-<%= link_to 'Process Order', order_path(@cart), :class => 'btn btn-default btn-xs' %>
+<%= link_to 'Process Order', orders_path(cart_id: @cart.id), :class => 'btn btn-default btn-xs', :method => :post %>
 
 <%# <%= link_to 'Delete Cart', carts_destroy_path(id: @cart), method: :delete, :class => 'btn btn-xs btn-danger' %>
 <% else %>
+
 <h4>No Cart Present</h4>
 <% end %>

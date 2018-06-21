@@ -1,2 +1,7 @@
+<div>
 <%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
+</div>
+<div>
+  Hi, <%= current_user.email %>
+</div>
 <h1 align="center">Welcome to the Application</h1>
