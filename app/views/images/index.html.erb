@@ -19,7 +19,7 @@
       <tr>
         <%# <%= image.user.email if image.user%>
         <td><%= link_to image.name, image_path(image) %></td>
-        <td><%= image_tag image.picture.url, size: "100x100" %></td>
+        <td><%= image_tag image.picture.url, size: "100x100" if image.picture.url %></td>
         <td>
           <%# <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_image_path(image), :class => 'btn btn-default btn-xs' %>
