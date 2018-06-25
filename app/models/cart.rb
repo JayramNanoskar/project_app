@@ -13,9 +13,9 @@ class Cart < ApplicationRecord
     else
       new_item =  order_lines.create(image_id: image_params[:id],
                                           quantity: 1,
-                                              cart_id: self.id,
+                                              # cart_id: self.id,
                                               total_price: 10.00)
     end
-      new_item
+      # new_item
   end
 end
