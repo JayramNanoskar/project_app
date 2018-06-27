@@ -8,7 +8,7 @@
   <%- model_class = Image -%>
   <%= link_to 'Back to shop', images_path , :class => 'btn btn-default btn-xs pull-right' %>
 
-<% if @cart.status == "pending" %>
+<%# <% if @cart.status == "pending" %>
   <table class="table table-striped">
   <thead>
     <tr>
@@ -47,7 +47,5 @@
 <%= link_to 'Process Order', orders_path(cart_id: @cart.id), :class => 'btn btn-default btn-xs', :method => :post if @image %>
 
 <%# <%= link_to 'Delete Cart', carts_destroy_path(id: @cart), method: :delete, :class => 'btn btn-xs btn-danger' %>
-<% else %>
 
-<h4>No Cart Present</h4>
-<% end %>
+

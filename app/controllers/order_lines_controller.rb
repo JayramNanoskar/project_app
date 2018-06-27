@@ -5,7 +5,9 @@ class OrderLinesController < ApplicationController
   def create
     # debugger
     image = Image.find(params[:image_id])
-   @cart.add_image(image)
+    @cart.add_image(image)
+
+    @cart.user_id = current_user.id
 
     if @cart.save
       redirect_to carts_show_path
