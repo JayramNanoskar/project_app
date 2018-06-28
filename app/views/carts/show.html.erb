@@ -41,10 +41,7 @@
 
   </tbody>
 </table>
-<% if @cart.status == "pending" %>
 
 <%= link_to 'Process Order', orders_path(cart_id: @cart.id), :class => 'btn btn-default btn-xs', :method => :post if @image %>
 
 <%# <%= link_to 'Delete Cart', carts_destroy_path(id: @cart), method: :delete, :class => 'btn btn-xs btn-danger' %>
-
-<% end %>
