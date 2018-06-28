@@ -1,7 +1,6 @@
 <%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'pull-right' %>
 <h4 align="center">Carts show</h4>
 <%# <p>Find me in app/views/carts/show.html.erb</p> %>
-<%# <%= @cart.id %>
 
 <% @order_lines = OrderLine.where(cart_id: @cart.id).all %>
 

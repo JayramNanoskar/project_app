@@ -1,18 +1,14 @@
 class OrdersController < ApplicationController
   def index
-    # debugger
+  # debugger
     @orders = Order.where(user_id: current_user.id).all
-    # @cart_order_line_details = OrderLine.where(cart_id: @cart).all
   end
 
   def create
-    # @order= Order.new(order_params)
-# debugger
-    puts "======= inside create order function ======="
-
-    # debugger
+  # debugger
     cart = Cart.find(params[:cart_id])
     @order = Order.new(cart: cart, user: current_user)
+
     if @order.save
       flash[:success] = "Order Successfull"
       redirect_to order_path(@order.id)

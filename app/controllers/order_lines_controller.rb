@@ -1,5 +1,4 @@
 class OrderLinesController < ApplicationController
-  # before_action :set_cart
   before_action :set_order_line, only: [:destroy]
 
   def create

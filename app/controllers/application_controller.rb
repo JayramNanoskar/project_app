@@ -4,14 +4,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_cart
 
-  # def current_order
-  #   if !session[:order_id].nil?
-  #     puts Order.find(session[:order_id])
-  #     Order.find(session[:order_id])
-  #   else
-  #     Order.new
-  #   end
-  # end
   private
     def set_cart
       @cart = Cart.find(session[:id])
