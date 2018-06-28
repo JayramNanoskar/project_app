@@ -51,7 +51,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Upload Image", new_image_path %></li>
             <li><%= link_to "Images", images_path %></li>
-            <li><%= link_to "My Cart", carts_show_path %></li>
+            <li><%= link_to "My Cart", cart_path(@cart.id) %></li>
             <%# <li><%= link_to "My Orders", orders_path %>
           </ul>
         </div>

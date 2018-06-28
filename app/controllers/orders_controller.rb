@@ -7,7 +7,9 @@ class OrdersController < ApplicationController
 
   def create
     # @order= Order.new(order_params)
+# debugger
     puts "======= inside create order function ======="
+
     # debugger
     cart = Cart.find(params[:cart_id])
     @order = Order.new(cart: cart, user: current_user)
@@ -16,7 +18,7 @@ class OrdersController < ApplicationController
       redirect_to order_path(@order.id)
     else
       flash[:error] = "Something Went Wrong"
-      redirect_to carts_show_path
+      redirect_to cart_path
     end
   end
 

@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   delete 'order_lines/destroy'
 
-  get 'carts/show'
-  delete 'carts/destroy'
+  # get 'carts/show'
+  # delete 'carts/destroy'
+  resources :carts, only: [:show, :destroy]
+
   # resources :carts  
   resources :images
   devise_for :users
