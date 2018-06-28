@@ -10,7 +10,7 @@ class OrderLinesController < ApplicationController
     @cart.user_id = current_user.id
 
     if @cart.save
-      redirect_to carts_show_path
+      redirect_to cart_path(@cart)
     else
       flash[:error] = 'Error'
       redirect_to @image
@@ -22,7 +22,7 @@ class OrderLinesController < ApplicationController
 
   def destroy
     @order_line.destroy
-    redirect_to carts_show_path
+    redirect_to carts_path(@cart)
   end
 
   private
